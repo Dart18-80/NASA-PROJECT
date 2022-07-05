@@ -3,6 +3,7 @@ const { parse } = require('csv-parse');
 const fs = require('fs');
 const path = require('path');
 const { resolve } = require('path');
+const launchesRouter = require('../routes/launches/launches.router');
 
 const habitablePlanets = [];
 
@@ -34,7 +35,12 @@ function loadPlanetsData(){
     });
 }
 
+function getAllPlanets(){
+    return habitablePlanets;
+}
+
+
 module.exports = {
     loadPlanetsData,
-    planets: habitablePlanets,
+    getAllPlanets,
 };
